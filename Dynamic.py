@@ -21,9 +21,23 @@ def balance():
     return balance
 
 #Ejemplo
-deposito(100)
-retiro(50)
-deposito(200)
+print("Bienvenido al banco")
+Bandera = True
+while Bandera == True:
+    print("¿Que desa hacer?")
+    print("1. Depositar")
+    print("2. Retirar")
+    print("3. Salir")
+    if input() == '1':
+        print("¿Cuanto desea depositar?")
+        deposito(int(input()))
+    elif input() == '2':
+        print("¿Cuanto desea retirar?")
+        retiro(int(input()))
+    elif input() == '3':
+        Bandera = False
+    else:
+        print("Opcion no valida")   
 
 ver_historial()
 print(f"El balance de la cuenta es: {balance()}")
