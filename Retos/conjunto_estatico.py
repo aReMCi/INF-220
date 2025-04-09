@@ -1,4 +1,29 @@
 class Conjunto_Estatico:
+    '''
+    Creación de la clase Conjunto_Estatico (ADT Estatica) 
+
+    Con los siguientes atributos:
+
+    elementos: lista de elementos del conjunto
+    dimension: tamaño máximo del conjunto
+
+    Y con los siguientes métodos:
+
+    union: devuelve la unión de dos conjuntos
+    interseccion: devuelve la intersección de dos conjuntos
+    diferencia: devuelve la diferencia de dos conjuntos
+    diferencia_simetrica: devuelve la diferencia simétrica de dos conjuntos
+    pertenece: verifica si un elemento pertenece al conjunto
+    es_subconjunto: verifica si un conjunto es subconjunto de otro
+    contiene: verifica si un elemento está en el conjunto
+    modificar_elemento: modifica un elemento en una posición dada
+    ordenar: ordena los elementos del conjunto
+
+    En esta clase no se pueden agregar ni eliminar elementos
+    Pero se pueden modificar los elementos existentes
+    y operar con ellos
+
+    '''
     def __init__(self,elementos, dimension = 10):
         if not isinstance(elementos, list):
             raise TypeError("Los elementos deben ser una lista")
