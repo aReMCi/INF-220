@@ -1,4 +1,25 @@
 class Conjunto_Dinamico:
+   '''
+   Creación de la clase Conjunto_Dinamico (ADT Dinamica)
+   
+   Con los siguientes atributos:
+   
+   elementos: lista de elementos del conjunto
+   
+   Y con los siguientes métodos:
+   
+   agregar: agrega un elemento al conjunto
+   eliminar: elimina un elemento del conjunto
+   union: devuelve la unión de dos conjuntos
+   interseccion: devuelve la intersección de dos conjuntos
+   diferencia: devuelve la diferencia de dos conjuntos
+   diferencia_simetrica: devuelve la diferencia simétrica de dos conjuntos
+   pertenece: verifica si un elemento pertenece al conjunto
+   ordenar: ordena los elementos del conjunto
+   
+   En esta clase se pueden agregar y eliminar elementos
+   y operar con ellos
+   '''
 
    def __init__(self, elementos = None):
       if elementos is None:
