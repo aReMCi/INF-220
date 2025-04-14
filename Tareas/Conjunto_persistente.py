@@ -1,5 +1,6 @@
 import pickle
 import os
+import shutil
 
 class conjunto_persistente:
     def __init__(self, filename):
@@ -18,6 +19,22 @@ class conjunto_persistente:
         if elemento in self.elementos:
             self.elementos.remove(elemento)
             self.guardar()
+
+    def Copia_de_seguridad(self):
+        respaldo = self.filename + ".bak"
+        shutil.copy(self.filename, respaldo)
+        print(f"Copia de seguridad creada: {respaldo}")
+    
+    def limpiar(self, bandera):
+       if bandera == 1:
+            self.Copia_de_seguridad()     
+            self.elementos.clear()
+            self.guardar()
+            #Archivo limpiado dejando un archivo de respaldo
+       elif bandera == 2:
+           self.elementos.clear()
+           self.guardar()
+           #Archivo limpiado sin respaldo         
     
     def contiene (self, elemento):
         return elemento in self.elementos
@@ -56,8 +73,16 @@ class conjunto_persistente:
 
 #Ejemplo
 
+#Crear instancia de conjunto_persistente
 conjunto1 = conjunto_persistente("conjunto1.dat")
 conjunto1.agregar(2)
 conjunto1.agregar(3)
 conjunto1.agregar(4)
 conjunto1.mostrar() 
+
+conjunto2 = conjunto_persistente("conjunto2.dat")
+conjunto2.agregar(3)
+conjunto2.agregar(4)  
+conjunto2.agregar(5)
+conjunto2.mostrar()
+
