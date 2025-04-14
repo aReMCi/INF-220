@@ -86,3 +86,4 @@ conjunto2.agregar(4)
 conjunto2.agregar(5)
 conjunto2.mostrar()
 
+conjunto1.union(conjunto2).mostrar()
