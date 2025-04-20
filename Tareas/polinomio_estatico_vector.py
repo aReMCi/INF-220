@@ -11,16 +11,15 @@ class polinomio:
         if dimension > 10:
             raise ValueError("El polinomio no puede tener más de 10 términos")
         self.dimension = dimension
-        self.polinomio = polinomio[:dimension]
+        self.polinomio = polinomio if polinomio else [None] * dimension 
     
     def set_termino(self, pos, nuevo_monomio):
-        pos= pos-1
+        pos= pos-1 # Ajustamos la posición para que sea 0-indexed
         if not isinstance(nuevo_monomio, monomio):
             raise TypeError("El monomio debe ser de tipo monomio")
-        if pos <= self.dimension:
-            self.polinomio[pos] = nuevo_monomio
-        else:   
-            raise IndexError("Posición fuera de rango")
+        if pos < 0 or pos >= len(self.polinomio):
+           raise IndexError("Posición fuera de rango")    
+        self.polinomio[pos] = nuevo_monomio
 
     def Get_termino(self,pos):
         if pos < 0 or pos >= len(self.polinomio):
