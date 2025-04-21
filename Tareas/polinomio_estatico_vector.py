@@ -21,10 +21,20 @@ class polinomio:
            raise IndexError("Posición fuera de rango")    
         self.polinomio[pos] = nuevo_monomio
 
+    def reduccion_semejantes(self):
+        for i in range(len(self.polinomio)):
+            if self.polinomio[i] is not None:
+                for j in range(i + 1, len(self.polinomio)):
+                    if self.polinomio[j] is not None and self.polinomio[i].exponente == self.polinomio[j].exponente:
+                        self.polinomio[i].coeficiente += self.polinomio[j].coeficiente
+                        self.polinomio[j] = None
+        
+
     def Get_termino(self,pos):
         if pos < 0 or pos >= len(self.polinomio):
             raise IndexError("Posición fuera de rango")
-        return self.polinomio[pos]    
+        return self.polinomio[pos]   
+
 
     def __str__ (self):
         resultado = ""
@@ -42,5 +52,10 @@ polinomio1 = polinomio(10, [])
 polinomio1.set_termino(1, monomio1)
 polinomio1.set_termino(2, monomio2)
 print(polinomio1)
-term = polinomio1.Get_termino(1)
-print(f"EL termino {term.coeficiente}{term.variable}^{term.exponente}")
+polinomio1.reduccion_semejantes()
+print(polinomio1)
+
+polinomio2 = polinomio(10, [])
+polinomio2.set_termino(1,monomio3)
+polinomio2.set_termino(2,monomio1)
+print(polinomio2)
