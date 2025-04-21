@@ -45,9 +45,6 @@ class polinomio:
             if self.polinomio[i] is not None:
                 dim_actual += 1
         return dim_actual
-    
-    def Sumar(self, polinomio1, polinomio2):
-        resultado = polinomio(polinomio1.Get_dim_actual() + polinomio2.Get_dim_actual(), [])
 
     def __str__ (self):
         resultado = ""
