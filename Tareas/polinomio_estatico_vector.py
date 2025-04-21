@@ -20,6 +20,7 @@ class polinomio:
         if pos < 0 or pos >= len(self.polinomio):
            raise IndexError("Posición fuera de rango")    
         self.polinomio[pos] = nuevo_monomio
+        self.reduccion_semejantes()
 
     def reduccion_semejantes(self):
         for i in range(len(self.polinomio)):
@@ -34,7 +35,19 @@ class polinomio:
         if pos < 0 or pos >= len(self.polinomio):
             raise IndexError("Posición fuera de rango")
         return self.polinomio[pos]   
-
+    
+    def Get_dimension(self):
+        return self.dimension
+    
+    def Get_dim_actual(self):
+        dim_actual = 0
+        for i in range(len(self.polinomio)):
+            if self.polinomio[i] is not None:
+                dim_actual += 1
+        return dim_actual
+    
+    def Sumar(self, polinomio1, polinomio2):
+        resultado = polinomio(polinomio1.Get_dim_actual() + polinomio2.Get_dim_actual(), [])
 
     def __str__ (self):
         resultado = ""
@@ -51,8 +64,6 @@ monomio3 = monomio(4, "x", 1)
 polinomio1 = polinomio(10, [])
 polinomio1.set_termino(1, monomio1)
 polinomio1.set_termino(2, monomio2)
-print(polinomio1)
-polinomio1.reduccion_semejantes()
 print(polinomio1)
 
 polinomio2 = polinomio(10, [])
