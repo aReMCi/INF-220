@@ -1,17 +1,19 @@
-''''
+"""'
 Clase polinonmio de tipo ADT Estatico
 Creamos primero la clase monomio y luego la clase polinomio
-'''
+"""
+
 
 class monomio:
-    def __init__(self,coeficiente,variable,exponente):
+    def __init__(self, coeficiente, variable, exponente):
         self.coeficiente = coeficiente
         self.variable = variable
         self.exponente = exponente
         self.siguiente = None
 
+
 class polinomio:
-    def __init__(self,monomio,dimension):
+    def __init__(self, monomio, dimension):
         if not isinstance(monomio, list):
             raise TypeError("Los monomios deben ser una lista")
         if dimension < 10:
@@ -25,13 +27,13 @@ class polinomio:
             raise ValueError("El polinomio ha alcanzado su dimension maxima")
         if not isinstance(nuevo_monomio, monomio):
             raise TypeError("El monomio debe ser de tipo monomio")
-        
-        #Si la lista esta vacia, el nuevo monomio se convierte en la cabeza
+
+        # Si la lista esta vacia, el nuevo monomio se convierte en la cabeza
         if self.cabeza is None:
             self.cabeza = nuevo_monomio
-        else:   
-            #Recorremos la lista hasta encontrar el ultimo monomio
-            #y lo enlazamos con el nuevo monomio
+        else:
+            # Recorremos la lista hasta encontrar el ultimo monomio
+            # y lo enlazamos con el nuevo monomio
             actual = self.cabeza
             while actual.siguiente is not None:
                 actual = actual.siguiente
@@ -47,21 +49,14 @@ class polinomio:
             print(f"{actual.coeficiente}{actual.variable}^{actual.exponente}", end=" ")
             actual = actual.siguiente
         print()
-    
 
-#Ejemplo
 
-monomio1 = monomio(2,"x",2)
-monomio2 = monomio(3,"x",2)
+# Ejemplo
 
-polinomio1 = polinomio([],10)
+monomio1 = monomio(2, "x", 2)
+monomio2 = monomio(3, "x", 2)
+
+polinomio1 = polinomio([], 10)
 polinomio1.Agregar_termino(monomio1)
 polinomio1.Agregar_termino(monomio2)
 polinomio1.Mostrar()
-
-        
-
-    
-
-
-    

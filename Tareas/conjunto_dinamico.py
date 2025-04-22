@@ -1,87 +1,85 @@
 class Conjunto_Dinamico:
-   '''
-   Creación de la clase Conjunto_Dinamico (ADT Dinamica)
-   
-   Con los siguientes atributos:
-   
-   elementos: lista de elementos del conjunto
-   
-   Y con los siguientes métodos:
-   
-   agregar: agrega un elemento al conjunto
-   eliminar: elimina un elemento del conjunto
-   union: devuelve la unión de dos conjuntos
-   interseccion: devuelve la intersección de dos conjuntos
-   diferencia: devuelve la diferencia de dos conjuntos
-   diferencia_simetrica: devuelve la diferencia simétrica de dos conjuntos
-   pertenece: verifica si un elemento pertenece al conjunto
-   ordenar: ordena los elementos del conjunto
-   
-   En esta clase se pueden agregar y eliminar elementos
-   y operar con ellos
-   '''
+    """
+    Creación de la clase Conjunto_Dinamico (ADT Dinamica)
 
-   def __init__(self, elementos = None):
-      if elementos is None:
-         self.elementos = []  #Inicializar una lista vacia
-      else:
-         self.elementos = list(elementos)  #Convertir a lista
-   
-   def agregar(self, elemento):
-      if elemento not in self.elementos:
-         self.elementos.append(elemento)  
-   
-   def eliminar(self, elemento):
-      if elemento in self.elementos:
-         self.elementos.remove(elemento)
-   
-   def union(self, otro_conjunto):
-      nuevo_conjunto = Conjunto_Dinamico(self.elementos)
-      for elemento in otro_conjunto.elementos:
-         nuevo_conjunto.agregar(elemento)
-      return nuevo_conjunto
+    Con los siguientes atributos:
 
-   def interseccion(self, otro_conjunto):
-      nuevo_conjunto = Conjunto_Dinamico()
-      for elemento in self.elementos:
-         if elemento in otro_conjunto.elementos:
+    elementos: lista de elementos del conjunto
+
+    Y con los siguientes métodos:
+
+    agregar: agrega un elemento al conjunto
+    eliminar: elimina un elemento del conjunto
+    union: devuelve la unión de dos conjuntos
+    interseccion: devuelve la intersección de dos conjuntos
+    diferencia: devuelve la diferencia de dos conjuntos
+    diferencia_simetrica: devuelve la diferencia simétrica de dos conjuntos
+    pertenece: verifica si un elemento pertenece al conjunto
+    ordenar: ordena los elementos del conjunto
+
+    En esta clase se pueden agregar y eliminar elementos
+    y operar con ellos
+    """
+
+    def __init__(self, elementos=None):
+        if elementos is None:
+            self.elementos = []  # Inicializar una lista vacia
+        else:
+            self.elementos = list(elementos)  # Convertir a lista
+
+    def agregar(self, elemento):
+        if elemento not in self.elementos:
+            self.elementos.append(elemento)
+
+    def eliminar(self, elemento):
+        if elemento in self.elementos:
+            self.elementos.remove(elemento)
+
+    def union(self, otro_conjunto):
+        nuevo_conjunto = Conjunto_Dinamico(self.elementos)
+        for elemento in otro_conjunto.elementos:
             nuevo_conjunto.agregar(elemento)
-      return nuevo_conjunto
+        return nuevo_conjunto
 
-   def pertenece(self, elemento):
-      if elemento in self.elementos:
-         print(f"Elemento {elemento} pertenece al conjunto.")
-      else:
-         print(f"Elemento {elemento} no pertenece al conjunto.")
+    def interseccion(self, otro_conjunto):
+        nuevo_conjunto = Conjunto_Dinamico()
+        for elemento in self.elementos:
+            if elemento in otro_conjunto.elementos:
+                nuevo_conjunto.agregar(elemento)
+        return nuevo_conjunto
 
-   def diferencia(self, otro_conjunto):
-      nuevo_conjunto = Conjunto_Dinamico()
-      for elemento in self.elementos:
-         if elemento not in otro_conjunto.elementos:
-            nuevo_conjunto.agregar(elemento)
-      return nuevo_conjunto
-   
-   def diferencia_simetrica(self, otro_conjunto):
-      nuevo_conjunto = Conjunto_Dinamico()
-      for elemento in self.elementos:
-         if elemento not in otro_conjunto.elementos:
-            nuevo_conjunto.agregar(elemento)
-      for elemento in otro_conjunto.elementos:
-         if elemento not in self.elementos:
-            nuevo_conjunto.agregar(elemento)
-      return nuevo_conjunto
-   
-   def ordenar(self):
-      self.elementos.sort()
-      print("Conjunto ordenado:", self.elementos)
+    def pertenece(self, elemento):
+        if elemento in self.elementos:
+            print(f"Elemento {elemento} pertenece al conjunto.")
+        else:
+            print(f"Elemento {elemento} no pertenece al conjunto.")
 
-   
+    def diferencia(self, otro_conjunto):
+        nuevo_conjunto = Conjunto_Dinamico()
+        for elemento in self.elementos:
+            if elemento not in otro_conjunto.elementos:
+                nuevo_conjunto.agregar(elemento)
+        return nuevo_conjunto
 
-   def __str__(self):
-      return "{" + ", ".join(map(str, self.elementos)) + "}"
+    def diferencia_simetrica(self, otro_conjunto):
+        nuevo_conjunto = Conjunto_Dinamico()
+        for elemento in self.elementos:
+            if elemento not in otro_conjunto.elementos:
+                nuevo_conjunto.agregar(elemento)
+        for elemento in otro_conjunto.elementos:
+            if elemento not in self.elementos:
+                nuevo_conjunto.agregar(elemento)
+        return nuevo_conjunto
+
+    def ordenar(self):
+        self.elementos.sort()
+        print("Conjunto ordenado:", self.elementos)
+
+    def __str__(self):
+        return "{" + ", ".join(map(str, self.elementos)) + "}"
 
 
-#Ejemplo
+# Ejemplo
 
 # Crear instancias de Conjunto_Dinamico
 
@@ -103,7 +101,7 @@ conjunto2.ordenar()
 
 conjuntou = conjunto1.union(conjunto2)
 conjuntoi = conjunto1.interseccion(conjunto2)
-conjuntod = conjunto1.diferencia(conjunto2)  
+conjuntod = conjunto1.diferencia(conjunto2)
 conjuntods = conjunto1.diferencia_simetrica(conjunto2)
 
 print("Union:", conjuntou)

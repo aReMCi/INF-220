@@ -7,27 +7,27 @@ class Numero:
 
     def ObtenerValor(self):
         return self.numero
-    
+
     def CantidadNumeros(self):
         return len(str(self.numero))
-    
+
     def VerifPar(self):
         return self.numero % 2 == 0
 
     def UltimoDigito(self):
         return self.numero % 10
-    
+
     def add_digit(self, digit):
         self.numero = self.numero * 10 + digit
         return self.numero
-    
+
     def delete_last_digit(self):
         self.numero = self.numero // 10
         return self.numero
 
     def __str__(self):
         return str(self.numero)
-            
+
 
 # Crear una instancia de la clase Numero
 mi_numero = Numero(0)
@@ -66,5 +66,5 @@ print("El nuevo valor del numero es: ", mi_numero)
 
 # Eliminar el último dígito del número y mostrar el nuevo valor
 nuevo_valor = mi_numero.delete_last_digit()
-mi_numero.FijarValor(nuevo_valor)  
+mi_numero.FijarValor(nuevo_valor)
 print("El nuevo valor del numero es: ", mi_numero)
