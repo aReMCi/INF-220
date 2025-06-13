@@ -42,32 +42,31 @@ class ListaDinamica:
             self.primero = actual.siguiente
             actual = None
             return
+        # Si el dato no es el primero, buscamos el nodo previo y eliminamos
+        previo = None
+        while actual and actual.dato != dato:
+            previo = actual
+            actual = actual.siguiente
+        # Si no se encuentra el dato, no se hace nada
+        if actual is None:
+            return   
+        previo.siguiente = actual.siguiente
+        actual = None
 
-    previo = None
-    while actual and actual.dato != dato
-        previo = actual
-        actual = actual.siguiente
-
-    if actual is None:
-        return
-    
-    previo.siguiente = actual.siguiente
-    actual = None
+    def buscar(self, dato):
+        nodo = self._buscar(dato)
+        if nodo:
+            return nodo.dato
+        else:
+            return None
 
 
 #Ejemplo de uso
 if __name__ == "__main__":
     lista = ListaDinamica()
     lista.append(1)
-    lista.append(2)
+    lista.append(25)
     lista.append(3)
     lista.mostrar()  # Salida: 1 -> 2 -> 3 -> None
 
-    lista.eliminar(2)
-    lista.mostrar()  # Salida: 1 -> 3 -> None
-
-    lista.eliminar(1)
-    lista.mostrar()  # Salida: 3 -> None
-
-    lista.eliminar(3)
-    lista.mostrar()  # Salida: None
+    print (lista.buscar(3))  # Salida: 2
